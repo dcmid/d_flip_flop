@@ -1,7 +1,8 @@
+MODULE := d_flip_flop
 WORK_DIR := work
 
-$(WORK_DIR)/runsim: hdl/d_flip_flop.sv sim/d_flip_flop_tb.sv | $(WORK_DIR)
-	cd sim; iverilog -g2012 -o ../$(WORK_DIR)/runsim d_flip_flop_tb.sv
+$(WORK_DIR)/runsim: hdl/$(MODULE).sv sim/$(MODULE)_tb.sv | $(WORK_DIR)
+	cd sim; iverilog -g2012 -o ../$(WORK_DIR)/runsim $(MODULE)_tb.sv
 	cd $(WORK_DIR); vvp runsim
 	
 $(WORK_DIR):
